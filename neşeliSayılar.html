@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Grafikler</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Game Warrior Template">
+    <meta name="keywords" content="warrior, game, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        #ageChart {
+            width: 500px;
+            height: 500px;
+        }
+
+    </style>
+    <style>
+        #commentsChart {
+            width: 500px;
+            height: 500px;
+        }
+
+    </style>
+
+
+    <style>
+        #employeesChart {
+            width: 500px;
+            height: 500px;
+        }
+
+    </style>
+
+    <!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section">
+        <div class="container">
+            <!-- logo -->
+            <a class="site-logo" href="index.html">
+                <img src="img/logo.png" alt="">
+            </a>
+            <div class="user-panel">
+                <a href="adminPaneli.html"><strong>Admin Sayfası</strong></a>
+            </div>
+            <!-- responsive -->
+            <div class="nav-switch">
+                <i class="fa fa-bars"></i>
+            </div>
+            <!-- site menu -->
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="#" id="myLink">Oyunlar</a></li>
+                    <li><a href="duyurular.html">Duyurular</a></li>
+                    <li><a href="misyon-vizyon.html">Misyon-Vizyon</a></li>
+                    <li><a href="hakkımızda.html">Hakkımızda</a></li>
+                    <li><a href="neşeliSayılar.html">Neşeli Sayılar</a></li>
+                    <li><a href="iletişim.html">İletişim</a></li>
+                    <script src="js/popup.js"></script>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header section end -->
+    <div id="popup" class="popup">
+        <span id="games"><a href="neseCiftligi.html" id="games">Neşe Çiftliği</a></span>
+        <br><br>
+        <span id="games"><a href="fetih.html" id="games">Fetih</a></span>
+        <br><br>
+        <span id="games"><a href="itTakesTwo.html" id="games">itTakesTwo</a></span>
+    </div>
+
+
+    <!-- Page section -->
+    <section class="recent-game-section spad set-bg" data-setbg="img/itTakesTwo.jpg">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8" >
+                    <!--1.grafik-->
+                    <ul class="community-post-list">
+                        <li style="background-color: rgba(0, 0, 0, 0.5)">
+                            <div class="post-content">
+                                <h2 style="color: darkblue">Oyuncuların Yaş Dağılımı</h2>
+                                <canvas id="ageChart"></canvas>
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        const ctx = document.getElementById('ageChart').getContext('2d');
+                                        const ageChart = new Chart(ctx, {
+                                            type: 'doughnut',
+                                            data: {
+                                                labels: ['18 Yaş Altı', '18-30 Yaş', '30 Yaş Üstü'],
+                                                datasets: [{
+                                                    label: 'Oyuncu Yaş Dağılımı',
+                                                    data: [10182, 8456, 3362],
+                                                    backgroundColor: [
+                                                        'rgba(75, 192, 75, 0.8)',
+                                                        'rgba(255, 159, 64, 0.8)',
+                                                        'rgba(255, 99, 132, 0.8)'
+                                                    ],
+                                                    borderColor: [
+                                                        'rgba(75, 192, 75, 1)',
+                                                        'rgba(255, 159, 64, 1)',
+                                                        'rgba(255, 99, 132, 1)'
+                                                    ],
+                                                    borderWidth: 1
+                                                }]
+                                            },
+                                            options: {
+                                                responsive: false, // Sabit boyut için responsive kapatıldı
+                                                maintainAspectRatio: true // En-boy oranı korundu
+                                            }
+                                        });
+                                    });
+
+                                </script>
+                            </div>
+                        </li>
+
+                        <li style="background-color: rgba(0, 0, 0, 0.2)">
+                            <h2 style="color: blue">Oyunlarımıza Gelen Yorumlar</h2>
+                            <canvas id="commentsChart"></canvas>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const ctx = document.getElementById('commentsChart').getContext('2d');
+                                    const commentsChart = new Chart(ctx, {
+                                        type: 'doughnut', // Halka grafiği türü
+                                        data: {
+                                            labels: ['Olumlu Yorumlar', 'Olumsuz Yorumlar'], // Kategoriler
+                                            datasets: [{
+                                                label: 'Yorum Dağılımı',
+                                                data: [380897, 97003], // Yorum sayıları
+                                                backgroundColor: [
+                                                    'rgba(75, 192, 75, 0.8)', // Yeşil (Olumlu)
+                                                    'rgba(255, 99, 132, 0.8)' // Kırmızı (Olumsuz)
+                                                ],
+                                                borderColor: [
+                                                    'rgba(75, 192, 75, 1)', // Yeşil (Olumlu)
+                                                    'rgba(255, 99, 132, 1)' // Kırmızı (Olumsuz)
+                                                ],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: false, // Sabit boyut için responsive kapatıldı
+                                            maintainAspectRatio: true, // En-boy oranı korundu
+                                            plugins: {
+                                                tooltip: {
+                                                    callbacks: {
+                                                        label: function(context) {
+                                                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                            const value = context.raw;
+                                                            const percentage = ((value / total) * 100).toFixed(2);
+                                                            return `${context.label}: ${value} (${percentage}%)`;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    });
+                                });
+
+                            </script>
+                        </li>
+
+                        <li style="background-color: rgba(0, 0, 0, 0.2)">
+                            <h2 style="color: darkblue">Şirket Çalışanları</h2>
+                            <canvas id="employeesChart"></canvas>
+
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function() {
+                                    const ctx = document.getElementById('employeesChart').getContext('2d');
+                                    const employeesChart = new Chart(ctx, {
+                                        type: 'doughnut', // Halka grafiği türü
+                                        data: {
+                                            labels: ['İdari Personel', 'Yazılımcı', 'Grafik Tasarımcı', 'Güvenlik Uzmanı', 'Stajyer'], // Kategoriler
+                                            datasets: [{
+                                                label: 'Çalışan Dağılımı',
+                                                data: [2, 5, 12, 3, 10], // Çalışan sayıları
+                                                backgroundColor: [
+                                                    'rgba(54, 162, 235, 0.8)', // Mavi (İdari Personel)
+                                                    'rgba(255, 206, 86, 0.8)', // Sarı (Yazılımcı)
+                                                    'rgba(255, 99, 132, 0.8)', // Pembe (Grafik Tasarımcı)
+                                                    'rgba(255, 159, 64, 0.8)', // Turuncu (Güvenlik Uzmanı)
+                                                    'rgba(75, 192, 192, 0.8)' // Yeşil (Stajyer)
+                                                ],
+                                                borderColor: [
+                                                    'rgba(54, 162, 235, 1)', // Mavi
+                                                    'rgba(255, 206, 86, 1)', // Sarı
+                                                    'rgba(255, 99, 132, 1)', // Pembe
+                                                    'rgba(255, 159, 64, 1)', // Turuncu
+                                                    'rgba(75, 192, 192, 1)' // Yeşil
+                                                ],
+                                                borderWidth: 1
+                                            }]
+                                        },
+                                        options: {
+                                            responsive: false, // Sabit boyut için responsive kapatıldı
+                                            maintainAspectRatio: true, // En-boy oranı korundu
+                                            plugins: {
+                                                tooltip: {
+                                                    callbacks: {
+                                                        label: function(context) {
+                                                            const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                            const value = context.raw;
+                                                            const percentage = ((value / total) * 100).toFixed(2);
+                                                            return `${context.label}: ${value} (${percentage}%)`;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    });
+                                });
+
+                            </script>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Page section end -->
+
+
+    <!-- Footer top section -->
+
+    <footer>
+        <div class="content">
+            <p><strong>Firma Adı:</strong> Neşeli Games</p>
+            <p><strong>Adres:</strong> Sırrıpaşa Mah. Girgin Sok. No.12, Kocaeli-Derince</p>
+            <p><strong>Telefon:</strong> +90 552 664 7129</p>
+            <p><strong>E-Posta:</strong> omer.serif.yp@gmail.com</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="img/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="img/twitter.png" alt="Twitter">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="img/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer top section end -->
+
+
+    <!-- Footer section -->
+    <footer class="footer-section">
+        <div class="container">
+            <ul class="footer-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="duyurular.html">Duyurular</a></li>
+                <li><a href="misyon-vizyon.html">Misyon-Vizyon</a></li>
+                <li><a href="hakkımızda.html">Hakkımızda</a></li>
+                <li><a href="neşeliSayılar.html">Neşeli Sayılar</a></li>
+                <li><a href="iletişim.html">İletişim</a></li>
+            </ul>
+            <p>
+                <stron>Neşeyle neşeli oyunlar oynamanız dileğiyle.</stron>
+            </p>
+        </div>
+    </footer>
+    <!-- Footer section end -->
+
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.marquee.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <!-- load for map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
+    <script src="js/map.js"></script>
+
+</body>
+
+</html>

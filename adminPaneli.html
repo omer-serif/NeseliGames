@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Admin Paneli</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Game Warrior Template">
+    <meta name="keywords" content="warrior, game, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="shortcut icon" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/owl.carousel.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/animate.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!--[if lt IE 9]>
+	  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header section -->
+    <header class="header-section">
+        <div class="container">
+            <!-- logo -->
+            <a class="site-logo" href="index.html">
+                <img src="img/logo.png" alt="">
+            </a>
+            <div class="user-panel">
+                <a href="adminPaneli.html"><strong>Admin Sayfası</strong></a>  
+            </div>
+            <!-- responsive -->
+            <div class="nav-switch">
+                <i class="fa fa-bars"></i>
+            </div>
+            <!-- site menu -->
+            <nav class="main-menu">
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="#" id="myLink">Oyunlar</a></li>
+                    <li><a href="duyurular.html">Duyurular</a></li>
+                    <li><a href="misyon-vizyon.html">Misyon-Vizyon</a></li>
+                    <li><a href="hakkımızda.html">Hakkımızda</a></li>
+                    <li><a href="neşeliSayılar.html">Neşeli Sayılar</a></li>
+                    <li><a href="iletişim.html">İletişim</a></li>
+                    <script src="js/popup.js"></script>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header section end -->
+    <div id="popup" class="popup">
+        <span id="games"><a href="neseCiftligi.html" id="games">Neşe Çiftliği</a></span>
+        <br><br>
+        <span id="games"><a href="fetih.html" id="games">Fetih</a></span>
+        <br><br>
+        <span id="games"><a href="itTakesTwo.html" id="games">itTakesTwo</a></span>
+    </div>
+
+
+    <!-- Page section -->
+    <section class="recent-game-section spad set-bg" data-setbg="img/itTakesTwo.jpg">
+        <div class="container" style="background-color: rgba(0 , 1, 0, 0.4)">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="container mt-5">
+                        <!-- Başlık -->
+                        <h1 class="text-center mb-5" style="color: azure">Verilerimiz</h1>
+
+                        <!-- Oyun Satışları -->
+                        <div class="mb-5">
+                            <h2 class="mb-3" style="color: azure">Oyun Satışlarımız</h2>
+                            <canvas id="oyunSatislariChart" width="400" height="200" style="color: azure"></canvas>
+                        </div>
+
+                        <!-- Çalışan Dağılımı -->
+                        <div>
+                            <h2 class="mb-3" style="color: azure">Çalışanlarımız</h2>
+                            <canvas id="calisanlarChart" width="400" height="200"></canvas>
+                        </div>
+                    </div>
+
+                    <script>
+                        // Oyun Satışları Verileri
+                        const oyunSatislariCtx = document.getElementById('oyunSatislariChart').getContext('2d');
+                        new Chart(oyunSatislariCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['Neşe Çiftliği', 'Fetih', 'It Takes Two'],
+                                datasets: [{
+                                    label: 'Satış Adetleri',
+                                    data: [12456, 7251, 8653],
+                                    backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                                    borderColor: 'rgba(54, 162, 235, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                        labels: {
+                                            color: 'azure'
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    x: {
+                                        ticks: {
+                                            color: 'azure'
+                                        }
+                                    },
+                                    y: {
+                                        ticks: {
+                                            color: 'azure'
+                                        },
+                                        beginAtZero: true,
+                                        title: {
+                                            display: true,
+                                            text: 'Satış Adetleri',
+                                            color: 'azure'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+                        // Çalışan Verileri
+                        const calisanlarCtx = document.getElementById('calisanlarChart').getContext('2d');
+                        new Chart(calisanlarCtx, {
+                            type: 'bar',
+                            data: {
+                                labels: ['İdari Personel', 'Yazılımcı', 'Stajyer', 'Grafik Tasarımcı', 'Güvenlik Uzmanı'],
+                                datasets: [{
+                                    label: 'Çalışan Sayısı',
+                                    data: [2, 5, 10, 12, 3],
+                                    backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                                    borderColor: 'rgba(255, 99, 132, 1)',
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                responsive: true,
+                                plugins: {
+                                    legend: {
+                                        display: true,
+                                        position: 'top',
+                                        labels: {
+                                            color: 'azure'
+                                        }
+                                    }
+                                },
+                                scales: {
+                                    x: {
+                                        ticks: {
+                                            color: 'azure'
+                                        }
+                                    },
+                                    y: {
+                                        beginAtZero: true,
+                                        title: {
+                                            display: true,
+                                            text: 'Çalışan Sayısı',
+                                            color: 'azure'
+                                        }
+                                    }
+                                }
+                            }
+                        });
+
+                    </script>
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+                </div>
+            </div>
+
+        </div>
+        <br><br>
+        <br>
+        <br>
+        <div class="container" style="background-color: rgba(0 , 1, 0, 0.4)">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="container mt-5">
+                        <!-- Admin Panel Header -->
+                        <h1 class="text-center mb-4" style="color: azure">Admin Panel</h1>
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#duyuru" data-bs-toggle="tab">Duyuru Ekle</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#oyun" data-bs-toggle="tab">Oyun Ekle</a>
+                            </li>
+                        </ul>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content mt-4">
+                            <!-- Duyuru Ekle -->
+                            <div class="tab-pane fade show active" id="duyuru">
+                                <h2 style="color: azure">Duyuru Ekle</h2>
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="duyuruBasligi" class="form-label" style="color: azure">Duyuru Başlığı</label>
+                                        <input type="text" id="duyuruBasligi" class="form-control" placeholder="Duyuru başlığı girin">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="duyuruIcerigi" class="form-label" style="color: azure">Duyuru İçeriği</label>
+                                        <textarea id="duyuruIcerigi" rows="5" class="form-control" placeholder="Duyuru içeriğini yazın"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="duyuruDosyasi" class="form-label" style="color: azure">Duyuru İçin <strong>RESİM</strong> Yükle</label>
+                                        <input type="file" id="duyuruDosyasi" class="form-control">
+                                        <br><br>
+                                        <label for="duyuruDosyasi" class="form-label" style="color: azure">Duyuru İçin <strong>PDF</strong> Yükle</label>
+                                        <input type="file" id="duyuruDosyasi" class="form-control">
+                                        <br><br>
+                                        <label for="duyuruDosyasi" class="form-label" style="color: azure">Duyuru İçin <strong>WORD BELGESİ</strong> Yükle</label>
+                                        <input type="file" id="duyuruDosyasi" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                </form>
+                            </div>
+
+                            <!-- Oyun Ekle -->
+                            <div class="tab-pane fade" id="oyun">
+                                <h2 style="color:azure">Oyun Ekle</h2>
+                                <form>
+                                    <div class="mb-3">
+                                        <label class="form-label" style="color: azure">Oyun Seçimi</label>
+                                        <select class="form-select">
+                                            <option value="neşe-çiftliği">Neşe Çiftliği</option>
+                                            <option value="fetih">Fetih</option>
+                                            <option value="it-takes-two">It Takes Two</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="guncelOyunDosyasi" class="form-label" style="color: azure">Güncel Oyun Dosyası</label>
+                                        <input type="file" id="guncelOyunDosyasi" class="form-control">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Kaydet</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+                </div>
+            </div>
+            <br>
+            <br>
+
+        </div>
+
+    </section>
+    <!-- Page section end -->
+
+
+    <!-- Footer top section -->
+
+    <footer>
+        <div class="content">
+            <p><strong>Firma Adı:</strong> Neşeli Games</p>
+            <p><strong>Adres:</strong> Sırrıpaşa Mah. Girgin Sok. No.12, Kocaeli-Derince</p>
+            <p><strong>Telefon:</strong> +90 552 664 7129</p>
+            <p><strong>E-Posta:</strong> omer.serif.yp@gmail.com</p>
+            <div class="social-media">
+                <a href="https://facebook.com" target="_blank">
+                    <img src="img/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://twitter.com" target="_blank">
+                    <img src="img/twitter.png" alt="Twitter">
+                </a>
+                <a href="https://instagram.com" target="_blank">
+                    <img src="img/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Footer top section end -->
+
+
+    <!-- Footer section -->
+    <footer class="footer-section">
+        <div class="container">
+            <ul class="footer-menu">
+                <li><a href="index.html">Ana Sayfa</a></li>
+                <li><a href="duyurular.html">Duyurular</a></li>
+                <li><a href="misyon-vizyon.html">Misyon-Vizyon</a></li>
+                <li><a href="hakkımızda.html">Hakkımızda</a></li>
+                <li><a href="neşeliSayılar.html">Neşeli Sayılar</a></li>
+                <li><a href="iletişim.html">İletişim</a></li>
+            </ul>
+            <p>
+                <stron>Neşeyle neşeli oyunlar oynamanız dileğiyle.</stron>
+            </p>
+        </div>
+    </footer>
+    <!-- Footer section end -->
+
+
+    <!--====== Javascripts & Jquery ======-->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.marquee.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+    <!-- load for map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWTIlluowDL-X4HbYQt3aDw_oi2JP0Krc&sensor=false"></script>
+    <script src="js/map.js"></script>
+
+</body>
+
+</html>
